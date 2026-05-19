@@ -22,7 +22,7 @@ data "aws_iam_policy_document" "default" {
 }
 
 # KMS Key
-# PSA Compliance: Req 3.50-05 (Generation, Rotation, Deletion)
+# PSA Compliance: Req 1 (encryption key management)
 resource "aws_kms_key" "this" {
   description              = var.description != "" ? var.description : "KMS Key for ${var.project_name} ${var.environment}"
   key_usage                = var.key_usage
@@ -33,8 +33,8 @@ resource "aws_kms_key" "this" {
   enable_key_rotation      = var.enable_key_rotation
   multi_region             = var.multi_region
 
-  tags = merge(var.tags, {
-    "Name"          = var.alias_name != "" ? var.alias_name : "${local.name_prefix}-kms"
+  tags = merge(local.common_tags, {
+    "Name"          = local.alias_name
     "PSA-Compliant" = "true"
   })
 }

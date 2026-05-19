@@ -117,10 +117,10 @@ This module implements the following PSA compliance features (referencing `01-St
 
 ### Security Controls
 
-- **Req 3.50-01 (Approved Algorithms)**: Defaulted to `SYMMETRIC_DEFAULT` (AES-256 GCM).
-- **Req 3.50-05 (Key Lifecycle)**: Full management of generation, rotation, and deletion.
-- **Req 3.50-05 (Rotation)**: Enforced `enable_key_rotation = true` by default.
-- **Req 3.69 (Access Control)**: Granular policy management through the `policy` and `grants` variables.
+- **Req 1 (Encryption Key Management)**: Full lifecycle management for secure key creation, aliasing, grants, rotation, and controlled deletion.
+- **Req 1 (Rotation)**: `enable_key_rotation = true` is enforced by default for production-ready key hygiene.
+- **Req 1 (Access Governance)**: Granular policy and grant management support least-privilege key usage patterns.
+- **Req 1 (Operational Visibility)**: Outputs expose key, alias, grant IDs, and grant tokens for downstream integrations.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
