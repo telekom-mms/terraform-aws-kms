@@ -28,4 +28,5 @@ output "grant_ids" {
 output "grant_tokens" {
   description = "Map of KMS grant tokens keyed by grant name"
   value       = { for name, grant in aws_kms_grant.this : name => grant.grant_token }
+  sensitive   = true
 }
